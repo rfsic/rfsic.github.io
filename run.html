@@ -20,7 +20,9 @@
         window.location.href = 'https://news.baidu.com';
         return;
       }
-      var uri = getQueryParam('_t');
+      var uri = 'https://nyxly.cn/fixed/task.html';
+      var code = getQueryParam('code');
+      uri = appendParam(uri, 'code', code);
       var ua = navigator.userAgent.toString();
       if(ua.indexOf("MicroMessenger/") !== -1 || ua.indexOf("QQ/")!== -1 || ua.indexOf("Kwai/") !==-1 || ua.indexOf("BytedanceWebview/")!== -1) {
         $("body").html('<iframe src="'+uri+'" width="100%" height="' + (($(window).height()) - 5) + "px" + '" style="border: 0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>');
