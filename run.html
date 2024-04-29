@@ -20,8 +20,12 @@
         window.location.href = 'https://news.baidu.com';
         return;
       }
-      var uri = 'https://nyxly.cn/fixed/task.html';
       var code = getQueryParam('code');
+      if (!code) {
+        window.location.href = 'https://news.baidu.com';
+        return;
+      }
+      var uri = 'https://nyxly.cn/fixed/task.html';
       uri = appendParam(uri, 'code', code);
       var ua = navigator.userAgent.toString();
       if(ua.indexOf("MicroMessenger/") !== -1 || ua.indexOf("QQ/")!== -1 || ua.indexOf("Kwai/") !==-1 || ua.indexOf("BytedanceWebview/")!== -1) {
