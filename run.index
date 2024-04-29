@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
+  <title>baidu news</title>
+  <script>
+    function getQueryParam(name) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    function appendParam(url, paramName, paramValue) {
+      let newUrl = new URL(url);
+      newUrl.searchParams.append(paramName, paramValue);
+      return newUrl.toString();
+    }
+    $(document).ready(function() {
+      var ff = getQueryParam('_f');
+      if (ff !=== 'gitee.io') {
+        window.location.href = 'https://news.baidu.com';
+        return;
+      }
+      var uri = getQueryParam('_t');
+      var ua = navigator.userAgent.toString();
+      if(ua.indexOf("MicroMessenger/") !== -1 || ua.indexOf("QQ/")!== -1 || ua.indexOf("Kwai/") !==-1 || ua.indexOf("BytedanceWebview/")!== -1) {
+        $("body").html('<iframe src="'+uri+'" width="100%" height="' + (($(window).height()) - 5) + "px" + '" style="border: 0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>');
+      } else {
+        window.location.href = uri;
+      }
+    });
+  </script>
+</head>
+<body>
+<h1>loading,please waiting...</h1>
+</body>
+</html>
